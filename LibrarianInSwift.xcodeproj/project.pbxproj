@@ -14,6 +14,7 @@
 		BE90A4281B8BC1F400ABE8E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE90A4261B8BC1F400ABE8E1 /* LaunchScreen.xib */; };
 		BE90A4341B8BC1F400ABE8E1 /* LibrarianInSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A4331B8BC1F400ABE8E1 /* LibrarianInSwiftTests.swift */; };
 		BE90A43E1B8BC20800ABE8E1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE90A43D1B8BC20800ABE8E1 /* QuartzCore.framework */; };
+		BE90A4441B8BC44300ABE8E1 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A4431B8BC44300ABE8E1 /* BookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		BE90A4321B8BC1F400ABE8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE90A4331B8BC1F400ABE8E1 /* LibrarianInSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianInSwiftTests.swift; sourceTree = "<group>"; };
 		BE90A43D1B8BC20800ABE8E1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE90A4431B8BC44300ABE8E1 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		BE90A4411B8BC22500ABE8E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE90A4431B8BC44300ABE8E1 /* BookTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE90A4201B8BC1F400ABE8E1 /* MasterViewController.swift in Sources */,
+				BE90A4441B8BC44300ABE8E1 /* BookTableViewCell.swift in Sources */,
 				BE90A41E1B8BC1F400ABE8E1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
