@@ -19,8 +19,9 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
         let bookCell = tableView.dequeueReusableCellWithIdentifier("bookCell", forIndexPath: indexPath) as! BookTableViewCell
         
         //TODO: Configure cell with book object
-        bookCell.bookTitleLabel.text = "iOS Programming"
-        bookCell.authorLabel.text = "Ray Wenderlich"
+        let book = Book(bookTitle: "iOS Programming 2", author: "Ray Wenderlich", publisher: "", categories: "", url: "", lastCheckedOut: "", lastCheckedOutBy: "")
+        bookCell.configureCell(book)
+
         return bookCell
     }
     
