@@ -7,10 +7,39 @@
 //
 
 import UIKit
+import QuartzCore
 
 class MasterViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addBookButton: UIButton!
     
+    //MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+    }
+    
+    //MARK: UIUpdate
+    
+    func configureUI(){
+        self.navigationItem.rightBarButtonItem = editButtonItem();
+        
+        addBookButton.layer.cornerRadius = self.addBookButton.frame.size.width / 2
+        addBookButton.layer.shadowColor = UIColor.darkGrayColor().CGColor
+        addBookButton.layer.shadowOpacity = 0.7
+        addBookButton.layer.shadowOffset = CGSizeMake(0.5, 0.5)
+        addBookButton.layer.shadowRadius = 4.0
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if editing {
+            tableView.setEditing(true, animated: true)
+        }else {
+            tableView.setEditing(false, animated: true)
+        }
+    }
 }
 
 extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
@@ -27,6 +56,10 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }
