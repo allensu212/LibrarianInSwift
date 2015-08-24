@@ -16,6 +16,7 @@
 		BE90A43E1B8BC20800ABE8E1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE90A43D1B8BC20800ABE8E1 /* QuartzCore.framework */; };
 		BE90A4441B8BC44300ABE8E1 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A4431B8BC44300ABE8E1 /* BookTableViewCell.swift */; };
 		BE90A4461B8BC5FF00ABE8E1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A4451B8BC5FF00ABE8E1 /* Book.swift */; };
+		BE90A44A1B8BE34200ABE8E1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A4491B8BE34200ABE8E1 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		BE90A43D1B8BC20800ABE8E1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BE90A4431B8BC44300ABE8E1 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		BE90A4451B8BC5FF00ABE8E1 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		BE90A4491B8BE34200ABE8E1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BE90A4451B8BC5FF00ABE8E1 /* Book.swift */,
+				BE90A4491B8BE34200ABE8E1 /* NetworkManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				BE90A4461B8BC5FF00ABE8E1 /* Book.swift in Sources */,
 				BE90A4201B8BC1F400ABE8E1 /* MasterViewController.swift in Sources */,
+				BE90A44A1B8BE34200ABE8E1 /* NetworkManager.swift in Sources */,
 				BE90A4441B8BC44300ABE8E1 /* BookTableViewCell.swift in Sources */,
 				BE90A41E1B8BC1F400ABE8E1 /* AppDelegate.swift in Sources */,
 			);
@@ -453,6 +457,7 @@
 				BE90A4391B8BC1F400ABE8E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE90A43A1B8BC1F400ABE8E1 /* Build configuration list for PBXNativeTarget "LibrarianInSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +466,7 @@
 				BE90A43C1B8BC1F400ABE8E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
