@@ -12,4 +12,9 @@ class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var bookTitleLabel: UILabel!
+    
+    func configureCell(book: Book){
+        authorLabel.text = book.author
+        bookTitleLabel.text = book.bookTitle
+    }
 }
