@@ -59,9 +59,29 @@ class MasterViewController: UIViewController {
             })
         })
     }
+    
+    func deleteBookAtIndexPath(indexPath: NSIndexPath){
+        let selectedBook = booksDataArray[indexPath.row]
+        NetworkManager.sharedManager.delete(selectedBook, completionBlock: {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.booksDataArray.removeAtIndex(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            })
+        })
+    }
 }
 
 extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return booksDataArray.count
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            deleteBookAtIndexPath(indexPath)
+        }
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let bookCell = tableView.dequeueReusableCellWithIdentifier("bookCell", forIndexPath: indexPath) as! BookTableViewCell
@@ -70,10 +90,6 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
         bookCell.configureCell(seletedBook)
 
         return bookCell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return booksDataArray.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
