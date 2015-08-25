@@ -18,7 +18,7 @@ class MasterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        configureUI()        
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     
@@ -47,6 +48,27 @@ class NetworkManager {
     }
     
     //MARK: Delete
+    
+    func delete(book: Book, completionBlock: Void ->Void){
+        let url = NSURL(string: "\(ENDPOINT_URL)" + "\(book.url!)")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "DELETE"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        
+        let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            if error == nil {
+                completionBlock()
+            }else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let alertView = UIAlertView(title: "Error", message: "Could Not Complete the Operation", delegate: nil, cancelButtonTitle: nil)
+                    alertView.show()
+                })
+            }
+        })
+        
+        dataTask.resume()
+    }
     
     //MARK: Add
     
