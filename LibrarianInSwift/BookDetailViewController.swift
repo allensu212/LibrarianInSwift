@@ -45,6 +45,8 @@ class BookDetailViewController: UIViewController {
         checkOutButton.layer.shadowOpacity = 0.7
         checkOutButton.layer.shadowOffset = CGSizeMake(0.5, 0.5)
         checkOutButton.layer.shadowRadius = 4.0
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action:Selector(showShareSheet()))
     }
     
     func configureTextView(book: Book){
@@ -67,4 +69,12 @@ class BookDetailViewController: UIViewController {
         bookInfoTextView.textColor = UIColor.darkGrayColor()
         bookInfoTextView.textAlignment = NSTextAlignment.Right
     }
+    
+    //MARK: IBAction
+    
+    func showShareSheet(){
+        let shareController = UIActivityViewController(activityItems: ["This Book is Awesome!!"], applicationActivities: nil)
+        presentViewController(shareController, animated: true, completion: nil)
+    }
+    
 }
