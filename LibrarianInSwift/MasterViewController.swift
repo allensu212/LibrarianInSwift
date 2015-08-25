@@ -69,6 +69,16 @@ class MasterViewController: UIViewController {
             })
         })
     }
+    
+    //MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showBookDetail" {
+            let detailController = segue.destinationViewController as! BookDetailViewController
+            let indexPath = tableView.indexPathForCell(sender as! BookTableViewCell)
+            detailController.bookObject = booksDataArray[indexPath!.row]
+        }
+    }
 }
 
 extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
@@ -90,10 +100,6 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
         bookCell.configureCell(seletedBook)
 
         return bookCell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }

@@ -9,3 +9,4 @@
 import Foundation
 
 let ENDPOINT_URL = "http://prolific-interview.herokuapp.com/5568cde6487d680009cf2624"
+let FONT_MAIN = "Futura"
