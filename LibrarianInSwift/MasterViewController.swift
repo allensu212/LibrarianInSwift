@@ -12,12 +12,18 @@ import QuartzCore
 class MasterViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addBookButton: UIButton!
+    var booksDataArray = [Book]()
     
     //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchBooks()
     }
     
     //MARK: UIUpdate
@@ -40,6 +46,19 @@ class MasterViewController: UIViewController {
             tableView.setEditing(false, animated: true)
         }
     }
+    
+    //MARK: Networking
+    
+    func fetchBooks(){
+        NetworkManager.sharedManager.fetchBook({
+            (booksArray) in
+            self.booksDataArray.removeAll(keepCapacity: true)
+            self.booksDataArray = booksArray
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        })
+    }
 }
 
 extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
@@ -47,15 +66,14 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let bookCell = tableView.dequeueReusableCellWithIdentifier("bookCell", forIndexPath: indexPath) as! BookTableViewCell
         
-        //TODO: Configure cell with book object
-        let book = Book(bookTitle: "iOS Programming 2", author: "Ray Wenderlich", publisher: "", categories: "", url: "", lastCheckedOut: "", lastCheckedOutBy: "")
-        bookCell.configureCell(book)
+        let seletedBook = booksDataArray[indexPath.row]
+        bookCell.configureCell(seletedBook)
 
         return bookCell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return booksDataArray.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
