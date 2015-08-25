@@ -118,8 +118,11 @@
                                 <rect key="frame" x="16" y="96" width="288" height="320"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Book Info" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F0-F6-g3Q">
-                                        <rect key="frame" x="8" y="152" width="272" height="160"/>
+                                        <rect key="frame" x="8" y="156" width="272" height="156"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="156" id="cdR-fg-NWb"/>
+                                        </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -134,10 +137,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNG-ND-gi9" userLabel="editButton">
-                                        <rect key="frame" x="250" y="48" width="22" height="22"/>
+                                        <rect key="frame" x="250" y="48" width="22" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="LJZ-Mp-2b6"/>
-                                            <constraint firstAttribute="height" constant="22" id="xlb-kJ-Heh"/>
+                                            <constraint firstAttribute="height" constant="26" id="xlb-kJ-Heh"/>
                                         </constraints>
                                         <color key="tintColor" red="0.34901960780000002" green="0.40000000000000002" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal">
@@ -146,9 +149,9 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLx-ZL-1fZ">
-                                        <rect key="frame" x="16" y="48" width="226" height="16"/>
+                                        <rect key="frame" x="16" y="48" width="226" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="JSh-Sz-3eZ"/>
+                                            <constraint firstAttribute="height" constant="20" id="JSh-Sz-3eZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,6 +163,7 @@
                                     <constraint firstItem="jNG-ND-gi9" firstAttribute="leading" secondItem="RLx-ZL-1fZ" secondAttribute="trailing" constant="8" id="2h3-bz-3XW"/>
                                     <constraint firstItem="xVX-Vk-Ijh" firstAttribute="leading" secondItem="vju-qN-A3T" secondAttribute="leading" constant="16" id="8th-tF-oiM"/>
                                     <constraint firstItem="1F0-F6-g3Q" firstAttribute="top" secondItem="jNG-ND-gi9" secondAttribute="bottom" constant="82" id="BAQ-VW-sMq"/>
+                                    <constraint firstItem="1F0-F6-g3Q" firstAttribute="top" secondItem="jNG-ND-gi9" secondAttribute="bottom" constant="82" id="EPa-Kb-gh2"/>
                                     <constraint firstItem="jNG-ND-gi9" firstAttribute="leading" secondItem="RLx-ZL-1fZ" secondAttribute="trailing" constant="8" id="IQe-Pi-EnY"/>
                                     <constraint firstAttribute="trailing" secondItem="jNG-ND-gi9" secondAttribute="trailing" constant="16" id="NDJ-cP-QKT"/>
                                     <constraint firstItem="jNG-ND-gi9" firstAttribute="top" secondItem="xVX-Vk-Ijh" secondAttribute="bottom" constant="10" id="Ohu-6m-hNz"/>
@@ -173,6 +177,14 @@
                                     <constraint firstItem="1F0-F6-g3Q" firstAttribute="leading" secondItem="vju-qN-A3T" secondAttribute="leading" constant="8" id="sBv-cE-BRf"/>
                                     <constraint firstAttribute="trailing" secondItem="1F0-F6-g3Q" secondAttribute="trailing" constant="8" id="xV5-Z9-wgf"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Pjc-PY-aSS"/>
+                                        <exclude reference="BAQ-VW-sMq"/>
+                                        <exclude reference="i1Q-h1-9od"/>
+                                        <exclude reference="Ohu-6m-hNz"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHC-ZB-X2X" userLabel="buttonHolder">
                                 <rect key="frame" x="8" y="424" width="304" height="136"/>
