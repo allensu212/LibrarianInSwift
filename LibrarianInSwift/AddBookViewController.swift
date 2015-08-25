@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum NewBookInfoType: Int {
+    case INFO_BOOK_TITLE = 0
+    case INFO_BOOK_AUTHOR
+    case INFO_BOOK_PUBLISHER
+    case INFO_BOOK_CATEGORIES
+}
+
 class AddBookViewController: UIViewController {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var bookTitleTextField: UITextField!
@@ -17,6 +24,7 @@ class AddBookViewController: UIViewController {
     
     var userIsEditingTextField = false
     var userIsUpdatingBook = false
+    var currentBook = Book(bookTitle: "", author: "", publisher: "", categories: "", url: "", lastCheckedOut: "", lastCheckedOutBy: "")
     
     //MARK: Lifecycle
 
@@ -55,5 +63,59 @@ class AddBookViewController: UIViewController {
     
     @IBAction func done(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension AddBookViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        let trimmedString = textField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        let infoType = textField.tag
+        
+        switch (infoType) {
+        case 0:
+            currentBook.bookTitle = trimmedString;
+            break;
+        case 1:
+            currentBook.author = trimmedString;
+            break;
+        case 2:
+            currentBook.publisher = trimmedString;
+            break;
+        case 3:
+            currentBook.categories = trimmedString;
+            break;
+        default:
+            break;
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let infoType = textField.tag;
+        
+        switch (infoType) {
+        case 0:
+            self.currentBook.bookTitle = textField.text;
+            break;
+        case 1:
+            self.currentBook.author = textField.text;
+            break;
+        case 2:
+            self.currentBook.publisher = textField.text;
+            break;
+        case 3:
+            self.currentBook.categories = textField.text;
+            break;
+        default:
+            break;
+        }
+        userIsEditingTextField = true;
+        
+        return true
     }
 }
