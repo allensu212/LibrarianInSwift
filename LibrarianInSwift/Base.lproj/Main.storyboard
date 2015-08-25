@@ -247,7 +247,7 @@
         <!--Add Book-->
         <scene sceneID="p2g-8Z-WDH">
             <objects>
-                <viewController id="Oq9-Fk-m0A" sceneMemberID="viewController">
+                <viewController id="Oq9-Fk-m0A" customClass="AddBookViewController" customModule="LibrarianInSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LDU-G6-niR"/>
                         <viewControllerLayoutGuide type="bottom" id="wmD-75-jIs"/>
@@ -360,6 +360,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="submitNewBook" destination="Oq9-Fk-m0A" eventType="touchUpInside" id="y04-KT-Zjv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -382,9 +385,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="04y-ja-oWn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="F4f-D0-qlQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="F4f-D0-qlQ">
+                            <connections>
+                                <action selector="done:" destination="Oq9-Fk-m0A" id="1ig-t7-PRM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="actionButton" destination="RKs-pE-R6I" id="hSK-wd-PRx"/>
+                        <outlet property="authorTextField" destination="WBA-5N-61h" id="KMD-rz-4Mw"/>
+                        <outlet property="bookTitleTextField" destination="7nW-uP-Y1B" id="KWl-XE-bYy"/>
+                        <outlet property="categoriesTextField" destination="5M0-Mh-4TX" id="1Kv-FI-Sn8"/>
+                        <outlet property="publisherTextField" destination="gSn-dN-JTm" id="RIS-S8-W5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7U-Hs-m0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

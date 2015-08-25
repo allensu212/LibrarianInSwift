@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE6373BD1B8D069E00FD9C08 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6373BC1B8D069E00FD9C08 /* AddBookViewController.swift */; };
 		BE90A41E1B8BC1F400ABE8E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A41D1B8BC1F400ABE8E1 /* AppDelegate.swift */; };
 		BE90A4201B8BC1F400ABE8E1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90A41F1B8BC1F400ABE8E1 /* MasterViewController.swift */; };
 		BE90A4231B8BC1F400ABE8E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE90A4211B8BC1F400ABE8E1 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE6373BC1B8D069E00FD9C08 /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		BE90A4181B8BC1F400ABE8E1 /* LibrarianInSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibrarianInSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE90A41C1B8BC1F400ABE8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE90A41D1B8BC1F400ABE8E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				BE90A41F1B8BC1F400ABE8E1 /* MasterViewController.swift */,
 				BE90A44D1B8BF3D200ABE8E1 /* BookDetailViewController.swift */,
+				BE6373BC1B8D069E00FD9C08 /* AddBookViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE90A4461B8BC5FF00ABE8E1 /* Book.swift in Sources */,
+				BE6373BD1B8D069E00FD9C08 /* AddBookViewController.swift in Sources */,
 				BE90A4201B8BC1F400ABE8E1 /* MasterViewController.swift in Sources */,
 				BE90A44A1B8BE34200ABE8E1 /* NetworkManager.swift in Sources */,
 				BE90A4441B8BC44300ABE8E1 /* BookTableViewCell.swift in Sources */,
