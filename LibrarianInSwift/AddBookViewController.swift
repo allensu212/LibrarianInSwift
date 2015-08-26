@@ -56,9 +56,22 @@ class AddBookViewController: UIViewController {
         }
     }
     
+    //MARL: Networking
+    
+    func addBook(){
+        NetworkManager.sharedManager.add(currentBook, completionBlock: {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.userIsEditingTextField = false
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        })
+    }
+    
+    
     //MARK: IBAction
     
     @IBAction func submitNewBook() {
+        addBook()
     }
     
     @IBAction func done(sender: AnyObject) {

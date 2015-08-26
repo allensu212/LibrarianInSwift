@@ -72,6 +72,43 @@ class NetworkManager {
     
     //MARK: Add
     
+    func add(book: Book, completionBlock: Void ->Void){
+        let url = NSURL(string: "\(ENDPOINT_URL)/books")
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        
+        let dataString = NSMutableString()
+        dataString.appendString("author=\(book.author!)")
+        dataString.appendString("&categories=\(book.categories!)")
+        dataString.appendString("&title=\(book.bookTitle!)")
+        dataString.appendString("&publisher=\(book.publisher!)")
+        
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        let dateString = dateFormatter.stringFromDate(date)
+        dataString.appendString("&lastCheckedOut=\(dateString)")
+        dataString.appendString("&lastCheckedOutBy=Default")
+        
+        let userData = dataString.dataUsingEncoding(NSUTF8StringEncoding)
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = userData
+        
+        
+        let uploadTask = session.uploadTaskWithRequest(request, fromData: userData) { (data, response, error) -> Void in
+            if error == nil {
+                let dataDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
+                print("Posted Dict: \(dataDict)")
+                completionBlock()
+            }else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionBlock()
+                })
+            }
+        }
+        uploadTask.resume()
+    }
+    
     //MARK: Update
     
 }
