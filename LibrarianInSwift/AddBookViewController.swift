@@ -51,9 +51,20 @@ class AddBookViewController: UIViewController {
     func configureNav(){
         if (userIsUpdatingBook == true) {
             navigationItem.title = "Edit Book"
+            fillOutTextFields(currentBook)
         }else {
             navigationItem.title = "Add Book"
         }
+    }
+    
+    func fillOutTextFields(book: Book){
+        
+        let formattedPublisherString = book.publisher ?? "Default"
+        let formattedCategoriesString = book.categories ?? "Default"
+        bookTitleTextField.text = book.bookTitle;
+        authorTextField.text = book.author;
+        publisherTextField.text = formattedPublisherString;
+        categoriesTextField.text = formattedCategoriesString;
     }
     
     //MARL: Networking

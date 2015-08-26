@@ -68,6 +68,17 @@ class BookDetailViewController: UIViewController {
         bookInfoTextView.textAlignment = NSTextAlignment.Right
     }
     
+    //MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEdit" {
+            let navController = segue.destinationViewController as! UINavigationController
+            let addBookController = navController.topViewController as! AddBookViewController
+            addBookController.userIsUpdatingBook = true
+            addBookController.currentBook = bookObject
+        }
+    }
+    
     //MARK: IBAction
     
     func showShareSheet(){
